@@ -1,11 +1,13 @@
+function setup() {
+  createCanvas(1920, 1080, WEBGL); //plano 3D
+  terra=loadImage('terra.jpg')
+}
 
-html, body {
-  margin: 0;
-  padding: 0;
+function draw() {
+  background(0, 0, 0); //cor de fundo
+  rotateY(millis()/2000); // rotação da terra
+  texture(terra); //textura da terra, imagem.
+  sphere(300, 320); //esfera 3D
+  
+  
 }
-canvas {
-  display: block;
-}
- terra {
-align="center"
- }
