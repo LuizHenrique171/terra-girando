@@ -1,9 +1,10 @@
-let earth;
-let starTexture;
+let terra;
+let texturaEstrelas;
 
 function preload() {
-  earth = loadImage('terra.jpg');
-  starTexture = loadImage('stars.jpg'); // You'll need to find a star image
+  terra = loadImage('terra.jpg');
+  // Você precisará de uma imagem de estrelas para isso
+  texturaEstrelas = loadImage('estrelas.jpg'); 
 }
 
 function setup() {
@@ -11,24 +12,27 @@ function setup() {
 }
 
 function draw() {
-  background(0); // Black background for space
+  background(0); // Fundo preto para o espaço
 
-  // Add stars as a background using a texture on a large sphere
+  // Adicione estrelas como um fundo usando uma textura em uma esfera grande
   push();
-  noStroke();
-  texture(starTexture);
-  sphere(2500); // A very large sphere to act as the skybox
+  noStroke(); // Remove o contorno
+  texture(texturaEstrelas);
+  // Uma esfera bem grande que age como o "céu"
+  sphere(2500); 
   pop();
 
-  // Draw the spinning earth
+  // Desenha a Terra girando
   push();
-  ambientLight(50); // A bit of ambient light so the dark side isn't completely black
+  // Uma luz ambiente para que o lado escuro não fique totalmente preto
+  ambientLight(50); 
   let locX = mouseX - width / 2;
   let locY = mouseY - height / 2;
-  pointLight(255, 255, 255, locX, locY, 100); // Light source that follows the mouse
+  // Uma fonte de luz que segue o mouse
+  pointLight(255, 255, 255, locX, locY, 100); 
   
   rotateY(millis() / 2000);
-  texture(earth);
+  texture(terra);
   sphere(280);
   pop();
 }
